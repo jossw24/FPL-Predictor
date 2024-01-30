@@ -4,4 +4,4 @@ Analysis of Fantasy Premier League data to make predeictions on future gameweeks
 
 ## Tech Stack
 
-![](https://skills.thijs.gg/icons?i=pandas,python,django,react)
+![](https://skills.thijs.gg/icons?i=python,django,react)
