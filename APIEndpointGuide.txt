@@ -1,73 +1,53 @@
-Fantasy Premier League API endpoint guide:
+# Fantasy Premier League API endpoint guide:
 
- Generic Information
+## General Information
 
-    "https://fantasy.premierleague.com/api/bootstrap-static/"
+The ‘bootstrap-static’ is the general call for basic info. Will provide ID fields for fixtures and players (see next endpoints)
 
-        A brief summary of all 38 GW
+Full URL: https://fantasy.premierleague.com/api/bootstrap-static/
 
-        The game settings
+Data included:
 
-        The phases of the season
+    A summary of all 38 gameweeks
+    The game’s settings
+    Basic information on all 20 PL teams
+    Total number of FPL Users and overall chip usage
+    Basic information on all Premier League players
+    List of stats that FPL keeps track of
+    The different FPL positions
 
-        Basic info on all 20 PL teams
+Bootstrap-static will provide essential analysis data and keys such as: Basic player info, player positions, all 38 gameweeks
 
-        Total # of FPL Users
+## Individual Premier League Players
 
-        Basic info on all PL Players
+Grab the player’s ID from the bootstrap-static call. Detailed player stats
 
-        List of stats that FPL keeps track of
+Full URL: https://fantasy.premierleague.com/api/element-summary/{player-id}/
 
-        The different FPL positions
+There’s also an additional URL that allows you to view the performance of all players for a specified gameweek.
 
-Fixtures
+Full URL: https://fantasy.premierleague.com/api/event/{GW}/live/
 
-    "https://fantasy.premierleague.com/api/fixtures/"
+Data included: Shows below stats, but for the gameweek for every player, rather than a single player for every gameweek.
 
-        A list of all 380 matches that will happen over the season
+Data included:
 
-PL Players
+    Remaining fixtures for the player, including:
+        Kickoff time
+        Gameweek number
+        Home or Away
+        Difficulty
 
-    "https://fantasy.premierleague.com/api/element-summary/{player-id}/"
-
-        Remaining fixtures left for PL player (example Mustafi has player-id=1, which can be found using bootstrap-static -> elements -> id)
-
-        Previous fixtures of PL player
-
-        Stats of previous seasons of PL player
-
-    "https://fantasy.premierleague.com/api/event/{GW}/live/"
-
-        Stats of all PL players that played in GW
-
-FPL Managers
-
-    "https://fantasy.premierleague.com/api/entry/{manager-id}/"
-
-        Basic info on FPL Manager
-
-    "https://fantasy.premierleague.com/api/entry/{manager-id}/transfers/"
-
-        A list of every transfer a FPL Manager has made in the current season
-
-    "https://fantasy.premierleague.com/api/entry/{manager-id}/event/{GW}/picks/"
-
-        A summary of a FPL Manager at a specific GW
-
-    "https://fantasy.premierleague.com/api/entry/{team-id}/history/"
-
-        A summary of a FPL Manager for each GW up until the current GW
-
-        The past season results of a FPL Manager
-
-        The chips a FPL Manager has played
-
-FPL Leagues
-
-    "https://fantasy.premierleague.com/api/leagues-classic/{league-id}/standings/"
-
-        Basic FPL League info
-
-        New members added to the FPL League
-
-        The FPL League standings
+    Previous fixtures and performance, including:
+        Minutes played
+        Goals
+        Assists
+        Conceded
+        Cards
+        Bonus
+        Influence
+        Creativity
+        xG
+        xA
+        Value
+        Transfer delta for that gameweek
